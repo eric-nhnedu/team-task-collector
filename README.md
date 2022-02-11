@@ -5,7 +5,7 @@ This project is collects the work status of team members. And make a list of the
 ## 💾 Install
 
 This Sample Project can be used by using the package manager or downloading the source directly. However, we highly recommend using the package manager.
-If you install it yourself, you will need to fix the "https://github.com/eric-nedu/php-dooray" dependency issue yourself.
+If you install it yourself, you will need to fix the "https://github.com/eric-nhnedu/php-dooray" dependency issue yourself.
 
 ## Via Package Manager
 This SDK are registered in two package managers, composer. You can conveniently install it using the commands provided by the package manager. When using composer, be sure to use it in the environment PHP 5.6+ is installed.
