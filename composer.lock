@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b45fb8fbbdded30105f4d1c9f3d0869",
+    "content-hash": "f2e91188366641eb281cf6f56a538dda",
     "packages": [
         {
             "name": "nhn-edu/php-dooray",
