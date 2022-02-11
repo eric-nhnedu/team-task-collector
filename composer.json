@@ -1,6 +1,12 @@
 {
     "name": "nhn-edu/team-task-collector",
+    "description": "This project is collects the work status of team members. And make a list of the collected results, and register it as a new task.",
+    "version": "1.0.0",
     "type": "project",
+    "keywords" : ["dooray","messenger","project","api","schedule"],
+    "homepage": "https://github.com/eric-nhnedu/team-task-collector",
+    "time": "2020-02-11 00:00:00",
+    "license": "Apache-2.0",
     "require": {
         "nhn-edu/php-dooray": "~1.0.1.3"
     },
@@ -12,7 +18,9 @@
     "authors": [
         {
             "name": "Eric Jo",
-            "email": "eric@nhnedu.com"
+            "email": "eric@nhnedu.com",
+			"homepage": "http://www.autoset.org",
+			"role": "Developer"
         }
     ]
 }
