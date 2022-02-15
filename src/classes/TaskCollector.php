@@ -125,14 +125,22 @@ class TaskCollector {
 
 		$members = $this->_cache->getData('members');
 		$COLLECTED_TASK_FOR_MARKDOWN = $this->_cache->getData('COLLECTED_TASK_FOR_MARKDOWN');
-		$ELAPSED_SECONDS = round($this->_cache->getData('ELAPSED_SECONDS'),2);
+		$elapsedSeconds = round($this->_cache->getData('ELAPSED_SECONDS'),2);
+
+		$searchPeriod = $this->_cache->getData('SEARCH_BEGIN_DATE').' ~ '.$this->_cache->getData('SEARCH_DUE_DATE');
 
 		$mdRows = [];
-		
-		$mdRows[] = '# 업무 진행 현황';
 
-		$mdRows[] = '* 집계 기간: '.$this->_cache->getData('SEARCH_BEGIN_DATE').' ~ '.$this->_cache->getData('SEARCH_DUE_DATE');
-		$mdRows[] = '* 집계 소요 시간: '.$ELAPSED_SECONDS.'초';
+		if (file_exists('header.txt')) {
+			$header = file_get_contents('header.txt');
+			$header = str_replace(['{today}','{period}','{elapsedSeconds}'],[date('Y-m-d'),$searchPeriod,$elapsedSeconds],$header);
+			$mdRows[] = $header;
+		} else {
+			$mdRows[] = '# 업무 진행 현황';
+
+			$mdRows[] = '* 집계 기간: '.$searchPeriod;
+			$mdRows[] = '* 집계 소요 시간: '.$elapsedSeconds.'초';
+		}
 
 		foreach ($members as $member) {
 
@@ -147,8 +155,10 @@ class TaskCollector {
 						&& $delayDays >= $this->_cache->getData('CLEANUP_DELAY_DAYS_AFTER_REGISTRATION')) {
 						$this->_projectApi->setPostDone($projectId, $taskId);
 
-						if (!empty($this->_cache->getData('CLEANUP_LOG_MESSAGE'))) {
-							$this->_projectApi->postLog($projectId, $taskId, $this->_cache->getData('CLEANUP_LOG_MESSAGE'));
+						$cleanupLogMessage = $this->_cache->getData('CLEANUP_LOG_MESSAGE');
+
+						if (!empty($cleanupLogMessage)) {
+							$this->_projectApi->postLog($projectId, $taskId, $cleanupLogMessage);
 						}
 
 						echo '[Clean-up Task] '.$url.PHP_EOL;
@@ -199,7 +209,7 @@ class TaskCollector {
 		$toOrganizationMemberIds = [];
 
 		foreach ($members as $member) {
-			$toOrganizationMemberIds[] = ["type"=>"member", "member" => ["organizationMemberId" => $member->id] ];
+//			$toOrganizationMemberIds[] = ["type"=>"member", "member" => ["organizationMemberId" => $member->id] ];
 		}
 
 		$result = $this->_projectApi->postTask($NOTIFY_TARGET_PROJECT_ID,
