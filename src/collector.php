@@ -5,7 +5,4 @@ require ('../vendor/autoload.php');
 use NhnEdu\TeamTaskCollector\TaskCollector;
 
 $collector = new TaskCollector('config.json');
-
-$collector->collectTasks();
-
-$collector->uploadSummaryTaskAndNotifyMessenger();
+$collector->run();

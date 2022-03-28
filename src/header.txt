@@ -1,0 +1,5 @@
+# [{today}] 주간회의
+
+* 집계 기간: {period}
+* 집계 소요 시간: {elapsedSeconds}초
+

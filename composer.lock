@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2e91188366641eb281cf6f56a538dda",
+    "content-hash": "810c544e74abb222be39c46ee63cf1ec",
     "packages": [
         {
             "name": "nhn-edu/php-dooray",
-            "version": "1.0.1.3",
+            "version": "1.0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eric-nhnedu/php-dooray.git",
-                "reference": "f69eb67499ee0714075691623393f014ca13c828"
+                "reference": "ec4c2b4330f08e2dbb80d0e29f27ad662363becb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eric-nhnedu/php-dooray/zipball/f69eb67499ee0714075691623393f014ca13c828",
-                "reference": "f69eb67499ee0714075691623393f014ca13c828",
+                "url": "https://api.github.com/repos/eric-nhnedu/php-dooray/zipball/ec4c2b4330f08e2dbb80d0e29f27ad662363becb",
+                "reference": "ec4c2b4330f08e2dbb80d0e29f27ad662363becb",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "project"
             ],
             "support": {
-                "source": "https://github.com/eric-nhnedu/php-dooray/tree/1.0.1.3"
+                "source": "https://github.com/eric-nhnedu/php-dooray/tree/1.0.1.6"
             },
             "time": "2020-02-10T20:00:00+00:00"
         }
