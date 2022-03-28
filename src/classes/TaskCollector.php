@@ -59,6 +59,10 @@ class TaskCollector {
 			
 			foreach ($memberIds as $memberId) {
 				$organizationMemberId = $this->_projectApi->getOrganizationMemberIdByProjectMember($projectId, $memberId);
+
+				if (empty($organizationMemberId)) {
+					continue;
+				}
 				
 				$tasks = $this->_projectApi->getAllTasks($projectId, [
 														'toMemberIds'=>$organizationMemberId,
