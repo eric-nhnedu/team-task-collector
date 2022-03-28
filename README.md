@@ -80,6 +80,7 @@ Edit the `config.json` file:
 	],
 	"NOTIFY_TARGET_PROJECT_ID" : "3456789012345678901",
 	"NOTIFY_TASK_SUBJECT" : "[Summary] IAMSCHOOL Dev. Team {today}",
+	"NOTIFY_TASK_REGISTER_EACH" : false,
 
 	"NOTIFY_MESSENGER_HOOK_URL" : "https://hook.dooray.com/services/2049115262726134450/3205835367300737562/9fVoDjpsSw6wbm7Z1qBjHg",
 	"NOTIFY_MESSENGER_TEXT" : "Team work status has been registered.\nCheck each one to see if there are any tasks that I have forgotten.\n\n{url}\n\nHave a good day!",
@@ -107,7 +108,5 @@ use NhnEdu\TeamTaskCollector\TaskCollector;
 
 $collector = new TaskCollector('config.json');
 
-$collector->collectTasks();
-
-$collector->uploadSummaryTaskAndNotifyMessenger();
+$collector->run();
 ```
