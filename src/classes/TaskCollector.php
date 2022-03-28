@@ -107,7 +107,7 @@ class TaskCollector {
 		$toOrganizationMemberIds = [];
 
 		foreach ($members as $member) {
-//			$toOrganizationMemberIds[] = ["type"=>"member", "member" => ["organizationMemberId" => $member->id] ];
+			$toOrganizationMemberIds[] = ["type"=>"member", "member" => ["organizationMemberId" => $member->id] ];
 		}
 
 		$result = $this->_projectApi->postTask($NOTIFY_TARGET_PROJECT_ID,
