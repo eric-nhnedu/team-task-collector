@@ -136,13 +136,20 @@ class TaskCollector {
 							$this->getGeneratedMarkdownContentByMember($member) ];
 				$bodyContentForChild = implode(PHP_EOL, $mdRows);
 
+				$ccOrganizationMemberIds = [];
+				foreach ($toOrganizationMemberIds as $toMember) {
+					if ($toMember['type'] == 'member' && $toMember['member']['organizationMemberId'] == $member->id) {
+						continue;
+					}
+					$ccOrganizationMemberIds[] = $toMember;
+				}
 
 				$childTask = $this->_projectApi->postTask($NOTIFY_TARGET_PROJECT_ID,
 															$subjectForChild, 
 															'text/x-markdown',
 															$bodyContentForChild,
-															$toOrganizationMemberIds,
-															null, 
+															[["type"=>"member", "member" => ["organizationMemberId" => $member->id] ]],
+															$ccOrganizationMemberIds,
 															null, 
 															[], 
 															'none', 
