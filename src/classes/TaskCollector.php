@@ -72,6 +72,18 @@ class TaskCollector {
 													]);
 
 				foreach ($tasks as $task) {
+
+					$myWorkflowId = null;
+					foreach ($task->users->to as $toUser) {
+						if ($toUser->type == "member" && $toUser->member->organizationMemberId == $organizationMemberId) {
+							$myWorkflowId = $toUser->workflow->id;
+						}						
+					}
+
+					if (is_null($myWorkflowId) || !in_array($myWorkflowId, $progressingWorkflowIds)) {
+						continue;
+					}
+
 					$resultList[$memberId][] = [
 										$task->project->code,
 										$task->taskNumber, 

@@ -1,7 +1,7 @@
 {
     "name": "nhn-edu/team-task-collector",
     "description": "This project is collects the work status of team members. And make a list of the collected results, and register it as a new task.",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "type": "project",
     "keywords" : ["dooray","messenger","project","api","schedule"],
     "homepage": "https://github.com/eric-nhnedu/team-task-collector",
